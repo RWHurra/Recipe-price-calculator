@@ -1,3 +1,6 @@
-[gd_scene format=3 uid="uid://dv0c0a3jg2om7"]
+[gd_scene load_steps=2 format=3 uid="uid://dv0c0a3jg2om7"]
+
+[ext_resource type="Script" path="res://recipe.gd" id="1_g4830"]
 
 [node name="recipe" type="Node2D"]
+script = ExtResource("1_g4830")

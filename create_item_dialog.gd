@@ -14,12 +14,6 @@ extends ConfirmationDialog
 func _ready():
 	set_hide_on_ok(false)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-
 func _on_cancelled():
 	queue_free()
 
@@ -45,19 +39,9 @@ func _on_confirmed():
 	var item_button_instance = item_button_scene.instantiate()
 	item_button_instance.set_item(item_instance)
 	item_button_instance.set_button_text(item_instance.get("item_name"))
-	main.add_item(item_button_instance)
+	print("item button created: ", item_button_instance)
+	
+	item_instance.set("linked_button", item_button_instance)
+	print("item created: ", item_instance, " with linked button: ", item_instance.get("linked_button"))
+	main.add_item(item_instance)
 	queue_free()
-
-#func _create_dialog_warning(warning_reason : String):
-#	var dialog_warning = AcceptDialog.new()
-#	dialog_warning.set_title("Warning")
-#	dialog_warning.set_text("Missing " + warning_reason + ", please add.")
-#	dialog_warning.set_position(Vector2(100, 100))
-#	add_child(dialog_warning)
-#	dialog_warning.set_visible(true)
-
-var alias: String:
-	get:
-		return alias
-	set(new_alias):
-		alias = new_alias

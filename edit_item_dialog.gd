@@ -13,11 +13,6 @@ extends ConfirmationDialog
 func _ready():
 	set_hide_on_ok(false)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 func set_item(value):
 	linked_item = value
 	
@@ -28,16 +23,6 @@ func set_button(value):
 	linked_button = value
 
 func set_values(item):
-	print("item: ", item)
-	print("item_name: ", item_name)
-	print("item item_name: ", item.get("item_name"))
-
-	print("item_price: ", item_price)
-	print("item item_price: ", item.get("price"))
-	
-	print("item_unit: ", item_unit)
-	print("item item_unit: ", item.get("unit"))
-
 	item_name.text = item.get("item_name")
 	item_price.text = item.get("price")
 	item_unit.text = item.get("unit")
@@ -64,3 +49,9 @@ func _on_confirmed():
 	linked_button.set_button_text(item_name.text)
 	
 	queue_free()
+
+
+func _on_delete_pressed():
+	main.delete_item(linked_item)
+	linked_item.queue_free()
+	linked_button.queue_free()

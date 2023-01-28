@@ -3,22 +3,28 @@ extends Control
 @onready var items : Array
 @onready var item_list = $TabContainer/Item
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+@onready var recipies : Array
+@onready var recipe_list = $TabContainer/Recipe
 
 func get_items():
 	return items
 	
 func add_item(new_item):
-#	new_item.set_button_text(new_item.name)
-	item_list.add_child(new_item)
+	item_list.add_child(new_item.get("linked_button"))
 	items.push_back(new_item)
+
+func delete_item(item):
+	items.erase(item)
+
+func get_recipies():
+	return recipies
+
+func add_recipe(new_recipe):
+	recipe_list.add_child(new_recipe.get("linked_button"))
+	recipies.push_back(new_recipe)
+
+func delete_recipe(recipe):
+	recipies.erase(recipe)
 
 func create_dialog_warning(warning_reason : String):
 	var dialog_warning = AcceptDialog.new()
