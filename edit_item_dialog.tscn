@@ -1,0 +1,47 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2nxssc3cyoob"]
+
+[ext_resource type="Script" path="res://edit_item_dialog.gd" id="1_aflv5"]
+
+[node name="Edit item dialog" type="ConfirmationDialog"]
+title = "Edit item"
+size = Vector2i(216, 455)
+visible = true
+script = ExtResource("1_aflv5")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(200, 300)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 208.0
+offset_bottom = 406.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Name label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Name"
+
+[node name="Name" type="TextEdit" parent="VBoxContainer"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+
+[node name="Price label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Price"
+
+[node name="Price" type="TextEdit" parent="VBoxContainer"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+
+[node name="Unit label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Unit"
+
+[node name="Unit" type="TextEdit" parent="VBoxContainer"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+
+[connection signal="confirmed" from="." to="." method="_on_confirmed"]

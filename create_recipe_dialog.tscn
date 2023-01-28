@@ -1,0 +1,36 @@
+[gd_scene load_steps=2 format=3 uid="uid://bf3h7gpute48f"]
+
+[ext_resource type="Script" path="res://Add item in recipe.gd" id="1_idyal"]
+
+[node name="Create recipe dialog" type="ConfirmationDialog"]
+title = "Create recipe"
+size = Vector2i(200, 118)
+visible = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 192.0
+offset_bottom = 69.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Add item in recipe" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Add item"
+script = ExtResource("1_idyal")
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+columns = 2
+
+[node name="Item" type="Label" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Item"
+
+[node name="Quantity" type="Label" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Quantity"
+
+[connection signal="pressed" from="VBoxContainer/Add item in recipe" to="VBoxContainer/Add item in recipe" method="_on_pressed"]
