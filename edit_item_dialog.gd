@@ -1,5 +1,7 @@
 extends ConfirmationDialog
 
+@onready var main = get_tree().get_current_scene()
+
 @onready var item_name = $VBoxContainer/Name
 @onready var item_price = $VBoxContainer/Price
 @onready var item_unit = $VBoxContainer/Unit
@@ -9,7 +11,7 @@ extends ConfirmationDialog
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	set_hide_on_ok(false)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -42,6 +44,19 @@ func set_values(item):
 
 
 func _on_confirmed():
+	if item_name.text == null or item_name.text == "":
+		print("item must have a name")
+		main.create_dialog_warning("item name")
+		return
+	if item_price.text == null or item_price.text == "":
+		print("item must have a price")
+		main.create_dialog_warning("item price")
+		return
+	if item_unit.text == null or item_unit.text == "":
+		print("item price must have a unit")
+		main.create_dialog_warning("item price unit")
+		return
+	
 	linked_item.set("item_name", item_name.text)
 	linked_item.set("price", item_price.text)
 	linked_item.set("unit", item_unit.text)

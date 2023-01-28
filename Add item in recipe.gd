@@ -17,6 +17,6 @@ func _process(delta):
 func _on_pressed():
 	var item_list = ItemList.new()
 	for item in items:
-		item_list.add_item(item.name, null, true)
+		item_list.add_item(item.get("item_name"), null, true)
 	grid.add_child(item_list)
 	item_list.show()

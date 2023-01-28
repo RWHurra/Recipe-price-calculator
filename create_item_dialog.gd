@@ -26,15 +26,15 @@ func _on_cancelled():
 func _on_confirmed():
 	if item_name.text == null or item_name.text == "":
 		print("item must have a name")
-		_create_dialog_warning("item name")
+		main.create_dialog_warning("item name")
 		return
 	if item_price.text == null or item_price.text == "":
 		print("item must have a price")
-		_create_dialog_warning("item price")
+		main.create_dialog_warning("item price")
 		return
 	if item_unit.text == null or item_unit.text == "":
 		print("item price must have a unit")
-		_create_dialog_warning("item price unit")
+		main.create_dialog_warning("item price unit")
 		return
 
 	var item_instance = item_scene.instantiate()
@@ -48,13 +48,13 @@ func _on_confirmed():
 	main.add_item(item_button_instance)
 	queue_free()
 
-func _create_dialog_warning(warning_reason : String):
-	var dialog_warning = AcceptDialog.new()
-	dialog_warning.set_title("Warning")
-	dialog_warning.set_text("Missing " + warning_reason + ", please add.")
-	dialog_warning.set_position(Vector2(100, 100))
-	add_child(dialog_warning)
-	dialog_warning.set_visible(true)
+#func _create_dialog_warning(warning_reason : String):
+#	var dialog_warning = AcceptDialog.new()
+#	dialog_warning.set_title("Warning")
+#	dialog_warning.set_text("Missing " + warning_reason + ", please add.")
+#	dialog_warning.set_position(Vector2(100, 100))
+#	add_child(dialog_warning)
+#	dialog_warning.set_visible(true)
 
 var alias: String:
 	get:

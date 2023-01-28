@@ -19,3 +19,11 @@ func add_item(new_item):
 #	new_item.set_button_text(new_item.name)
 	item_list.add_child(new_item)
 	items.push_back(new_item)
+
+func create_dialog_warning(warning_reason : String):
+	var dialog_warning = AcceptDialog.new()
+	dialog_warning.set_title("Warning")
+	dialog_warning.set_text("Missing " + warning_reason + ", please add.")
+	dialog_warning.set_position(Vector2(100, 100))
+	add_child(dialog_warning)
+	dialog_warning.set_visible(true)
