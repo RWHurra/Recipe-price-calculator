@@ -20,6 +20,7 @@ func get_recipies():
 	return recipies
 
 func add_recipe(new_recipe):
+	add_child(new_recipe)
 	recipe_list.add_child(new_recipe.get("linked_button"))
 	recipies.push_back(new_recipe)
 

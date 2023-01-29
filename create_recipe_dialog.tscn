@@ -6,15 +6,20 @@
 [node name="Create recipe dialog" type="ConfirmationDialog"]
 title = "Create recipe"
 position = Vector2i(100, 100)
-size = Vector2i(200, 172)
+size = Vector2i(400, 300)
 visible = true
 script = ExtResource("1_meavt")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 offset_left = 8.0
 offset_top = 8.0
-offset_right = 192.0
-offset_bottom = 123.0
+offset_right = 392.0
+offset_bottom = 251.0
+grow_horizontal = 2
+grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="Name" type="TextEdit" parent="VBoxContainer"]
@@ -30,8 +35,7 @@ script = ExtResource("1_idyal")
 [node name="GridContainer" type="GridContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 4
-columns = 2
+columns = 3
 
 [node name="Item" type="Label" parent="VBoxContainer/GridContainer"]
 layout_mode = 2
@@ -40,6 +44,10 @@ text = "Item"
 [node name="Quantity" type="Label" parent="VBoxContainer/GridContainer"]
 layout_mode = 2
 text = "Quantity"
+
+[node name="Unit" type="Label" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Unit"
 
 [connection signal="confirmed" from="." to="." method="_on_confirmed"]
 [connection signal="pressed" from="VBoxContainer/Add item in recipe" to="VBoxContainer/Add item in recipe" method="_on_pressed"]

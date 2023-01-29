@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://crs2swpqhtnlj"]
+
+[ext_resource type="Script" path="res://add_item_to_recipe_list.gd" id="1_708s1"]
+
+[node name="Add item to recipe list" type="ConfirmationDialog"]
+title = "Select item"
+position = Vector2i(200, 200)
+size = Vector2i(200, 200)
+script = ExtResource("1_708s1")
+
+[node name="ItemList" type="ItemList" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[connection signal="confirmed" from="." to="." method="_on_confirmed"]

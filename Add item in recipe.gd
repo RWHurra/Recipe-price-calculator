@@ -2,14 +2,11 @@ extends Button
 
 @onready var main = get_tree().get_current_scene()
 @onready var items
-@onready var grid = get_parent().get_node("GridContainer")
+@onready var create_recipe_dialog = get_parent().get_parent()
+@onready var item_list_scene = preload("res://add_item_to_recipe_list.tscn")
 
 func _on_pressed():
-	items = main.get_items()
-	var item_list = ItemList.new()
-	print(items)
-	for item in items:
-		print(item)
-		item_list.add_item(item.get("item_name"), null, true)
-	grid.add_child(item_list)
-	item_list.show()
+	var item_list_instance = item_list_scene.instantiate()
+	item_list_instance.set_create_recipe(create_recipe_dialog)
+	add_sibling(item_list_instance)
+	item_list_instance.show()
