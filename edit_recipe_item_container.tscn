@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://bv5plr6avccer"]
+
+[ext_resource type="Script" path="res://edit_recipe_item_container.gd" id="1_2e4cx"]
+
+[node name="Edit recipe item container" type="HBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_2e4cx")
+
+[node name="Name" type="TextEdit" parent="."]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+placeholder_text = "Item name"
+
+[node name="Quantity" type="TextEdit" parent="."]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+placeholder_text = "Item quantity"
+
+[node name="Unit" type="TextEdit" parent="."]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+placeholder_text = "Item unit"

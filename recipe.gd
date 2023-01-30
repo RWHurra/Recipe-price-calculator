@@ -15,6 +15,12 @@ extends Node2D
 	set(value):
 		linked_button = value
 
+func get_items():
+	return recipe_items
+
+func get_quantities():
+	return recipe_quantities
+
 func add_item(item, quantity):
 	print("in 'add_item' recipe")
 	print("recipe_items: ", recipe_items)

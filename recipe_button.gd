@@ -12,7 +12,9 @@ func set_recipe(value):
 func get_recipe():
 	return linked_recipe
 
-
 func _on_pressed():
 	var edit_recipe_dialog_instance = edit_recipe_dialog_scene.instantiate()
 	add_child(edit_recipe_dialog_instance)
+	edit_recipe_dialog_instance.set_button(self)
+	edit_recipe_dialog_instance.set_recipe(get_recipe())
+	edit_recipe_dialog_instance.set_values(get_recipe())

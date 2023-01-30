@@ -1,16 +1,31 @@
-[gd_scene format=3 uid="uid://dwes6dmv40qa3"]
+[gd_scene load_steps=2 format=3 uid="uid://dwes6dmv40qa3"]
+
+[ext_resource type="Script" path="res://edit_recipe_dialog.gd" id="1_anle0"]
 
 [node name="Edit recipe dialog" type="ConfirmationDialog"]
 title = "Edit recipe"
 position = Vector2i(100, 100)
+size = Vector2i(216, 222)
 visible = true
+script = ExtResource("1_anle0")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 offset_left = 8.0
 offset_top = 8.0
-offset_right = 192.0
-offset_bottom = 51.0
+offset_right = 208.0
+offset_bottom = 173.0
+
+[node name="Name label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Name"
+
+[node name="Name" type="TextEdit" parent="VBoxContainer"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+placeholder_text = "Recipe name"
 
 [node name="Delete" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "Delete"
+
+[connection signal="pressed" from="VBoxContainer/Delete" to="." method="_on_delete_pressed"]
