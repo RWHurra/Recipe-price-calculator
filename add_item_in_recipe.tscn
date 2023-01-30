@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhq7f2k34ea1q"]
+
+[ext_resource type="Script" path="res://Add item in recipe.gd" id="1_ydq0o"]
+
+[node name="Add item in recipe" type="Button"]
+text = "Add item"
+script = ExtResource("1_ydq0o")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

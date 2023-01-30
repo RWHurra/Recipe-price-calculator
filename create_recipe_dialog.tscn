@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bf3h7gpute48f"]
 
-[ext_resource type="Script" path="res://Add item in recipe.gd" id="1_idyal"]
 [ext_resource type="Script" path="res://create_recipe_dialog.gd" id="1_meavt"]
+[ext_resource type="PackedScene" uid="uid://dhq7f2k34ea1q" path="res://add_item_in_recipe.tscn" id="2_h27go"]
 
 [node name="Create recipe dialog" type="ConfirmationDialog"]
 title = "Create recipe"
@@ -27,10 +27,8 @@ custom_minimum_size = Vector2(10, 50)
 layout_mode = 2
 placeholder_text = "Recipe name..."
 
-[node name="Add item in recipe" type="Button" parent="VBoxContainer"]
+[node name="Add item in recipe" parent="VBoxContainer" instance=ExtResource("2_h27go")]
 layout_mode = 2
-text = "Add item"
-script = ExtResource("1_idyal")
 
 [node name="GridContainer" type="GridContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -50,4 +48,3 @@ layout_mode = 2
 text = "Unit"
 
 [connection signal="confirmed" from="." to="." method="_on_confirmed"]
-[connection signal="pressed" from="VBoxContainer/Add item in recipe" to="VBoxContainer/Add item in recipe" method="_on_pressed"]

@@ -6,6 +6,7 @@ extends ConfirmationDialog
 @onready var edit_recipe_item_container_scene = preload("res://edit_recipe_item_container.tscn")
 @onready var vertical_box = $VBoxContainer
 @onready var recipe_name = $VBoxContainer/Name
+@onready var cost = $VBoxContainer/HBoxContainer/Cost
 
 func set_recipe(value):
 	linked_recipe = value
@@ -31,7 +32,21 @@ func set_values(recipe):
 		edit_recipe_item_container_instance.set_quantity(quantities[counter])
 		edit_recipe_item_container_instance.set_unit(item.get("unit"))
 		counter = counter + 1
+
+	var total_cost = recipe.get_total_cost()
+	cost.set_text(str(total_cost))
+
+func add_item(value):
+	var items = linked_recipe.get_items()
+	for item in items:
+		if value == item:
+			print("ITEM ALREADY IN RECIPE")
+			return
 	
+	var edit_recipe_item_container_instance = edit_recipe_item_container_scene.instantiate()
+	vertical_box.add_child(edit_recipe_item_container_instance)
+	edit_recipe_item_container_instance.set_name(value.get("item_name"))
+	edit_recipe_item_container_instance.set_unit(value.get("unit"))
 
 func _on_delete_pressed():
 	main.delete_recipe(linked_recipe)

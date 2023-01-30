@@ -7,17 +7,15 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_2e4cx")
 
-[node name="Name" type="TextEdit" parent="."]
+[node name="Name" type="Label" parent="."]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
-placeholder_text = "Item name"
 
 [node name="Quantity" type="TextEdit" parent="."]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 placeholder_text = "Item quantity"
 
-[node name="Unit" type="TextEdit" parent="."]
+[node name="Unit" type="Label" parent="."]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
-placeholder_text = "Item unit"
