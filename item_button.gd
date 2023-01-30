@@ -15,8 +15,7 @@ func get_item():
 func _on_pressed():
 	print("linked item: ", get_item())
 	var edit_item_dialog_instance = edit_item_dialog_scene.instantiate()
-	edit_item_dialog_instance.set_item(self.get_item())
-	edit_item_dialog_instance.set_button(self)
 	add_child(edit_item_dialog_instance)
-	edit_item_dialog_instance.set_visible(true)
+	edit_item_dialog_instance.set_item(get_item())
+	edit_item_dialog_instance.set_button(self)
 	edit_item_dialog_instance.set_values(get_item())

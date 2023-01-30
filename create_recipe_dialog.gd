@@ -38,6 +38,7 @@ func _on_confirmed():
 		
 	var recipe_instance = recipe_scene.instantiate()
 	recipe_instance.set("recipe_name", recipe_name.text)
+	print("Recipe created with name: ", recipe_instance.get("recipe_name"))
 	
 	var recipe_button_instance = recipe_button_scene.instantiate()
 	recipe_button_instance.set_button_text(recipe_name.text)

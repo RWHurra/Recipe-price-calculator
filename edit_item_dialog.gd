@@ -23,9 +23,9 @@ func set_button(value):
 	linked_button = value
 
 func set_values(item):
-	item_name.text = item.get("item_name")
-	item_price.text = item.get("price")
-	item_unit.text = item.get("unit")
+	item_name.set_text(item.get("item_name"))
+	item_price.set_text(item.get("price"))
+	item_unit.set_text(item.get("unit"))
 
 
 func _on_confirmed():
