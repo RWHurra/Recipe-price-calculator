@@ -18,6 +18,7 @@ func _on_cancelled():
 	queue_free()
 
 func _on_confirmed():
+	print("======= IN ON CONFIRMED (CREATE ITEM) =======")
 	if item_name.text == null or item_name.text == "":
 		print("item must have a name")
 		main.create_dialog_warning("item name")
@@ -44,4 +45,5 @@ func _on_confirmed():
 	item_instance.set("linked_button", item_button_instance)
 	print("item created: ", item_instance, " with linked button: ", item_instance.get("linked_button"))
 	main.add_item(item_instance)
+	print("======= END ON CONFIRMED (CREATE ITEM) =======")
 	queue_free()

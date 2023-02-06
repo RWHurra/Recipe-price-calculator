@@ -10,5 +10,11 @@ func set_name(value):
 func set_quantity(value):
 	quantity.set_text(value)
 
+func get_quantity():
+	return quantity.get_text()
+
+func get_quantity_node():
+	return quantity
+
 func set_unit(value):
 	unit.set_text(value)

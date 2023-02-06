@@ -13,7 +13,7 @@ func _ready():
 	set_hide_on_ok(false)
 
 func add_item(value):
-	
+	print("======= IN ADD ITEM (CREATE RECIPE) =======")
 	for item in added_items:
 		if value == item[0]:
 			print("ITEM ALREADY IN RECIPE")
@@ -30,7 +30,7 @@ func add_item(value):
 	added_quantity.append(item_quantity)
 	
 	var item_unit = Label.new()
-	item_unit.set_text(value.get("unit"))
+	item_unit.set_text(value.get("unit").replace("kr/", ""))
 	grid.add_child(item_unit)
 	
 	var added_item = [value, item_quantity.text]
@@ -38,8 +38,10 @@ func add_item(value):
 	
 	added_items.push_back(added_item)
 #	print("added items: ", added_items)
+	print("======= END ADD ITEM (CREATE RECIPE) =======")
 
 func _on_confirmed():
+	print("======= IN ON CONFIRMED (CREATE RECIPE) =======")
 	if recipe_name.get_text() == null or recipe_name.get_text() == "":
 		main.create_dialog_warning("recipe name")
 		return
@@ -59,9 +61,9 @@ func _on_confirmed():
 		print("item in for loop: ", item)
 		print("item[0] in for loop: ", item[0])
 		print(added_quantity[counter])
-		recipe_instance.add_item(item[0], added_quantity[counter].get_text())
+		recipe_instance.add_item_to_recipe(item[0], added_quantity[counter].get_text())
 		counter = counter + 1
 	
-	recipe_button_instance.set_button_text(recipe_name.get_text() + ": " + str(recipe_instance.get_total_cost()))
-	
+	recipe_button_instance.set_button_text(recipe_name.get_text() + ": " + str(recipe_instance.get_total_cost()) + " kr")
+	print("======= END ON CONFIRMED (CREATE RECIPE) =======")
 	queue_free()

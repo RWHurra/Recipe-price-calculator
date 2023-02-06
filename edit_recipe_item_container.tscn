@@ -10,6 +10,7 @@ script = ExtResource("1_2e4cx")
 [node name="Name" type="Label" parent="."]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
+text = "Name"
 
 [node name="Quantity" type="TextEdit" parent="."]
 custom_minimum_size = Vector2(100, 50)
@@ -19,3 +20,4 @@ placeholder_text = "Item quantity"
 [node name="Unit" type="Label" parent="."]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
+text = "Unit"

@@ -13,10 +13,11 @@ func _ready():
 func set_instantiator(value):
 	linked_instantiator = value
 
-
 func _on_confirmed():
-	print(items)
+	print("======= IN ON CONFIRMED (ADD ITEM TO RECIPE LIST) =======")
 	if !item_list.is_anything_selected():
 		return
-	print(item_list.get_selected_items(), ": ", items[item_list.get_selected_items()[0]])
+	print("items[item_list.get_selected_items()[0]]: ", items[item_list.get_selected_items()[0]])
+	print("ITEM TO ADD IN RECIPE EDIT: ", items[item_list.get_selected_items()[0]])
 	linked_instantiator.add_item(items[item_list.get_selected_items()[0]])
+	print("======= END ON CONFIRMED (ADD ITEM TO RECIPE LIST) =======")
